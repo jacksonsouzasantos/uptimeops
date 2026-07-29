@@ -331,6 +331,52 @@ img { max-width: 100%; display: block; }
   .hero-status-panel { top: auto; bottom: 117px; left: 20px; right: 20px; width: auto; }
   .hero-footer { bottom: 27px; align-items: flex-end; }
   .hero-footer p { width: 72%; font-size: 10px; }
+  /* ==========================================================================
+   BARRA DE TECNOLOGIAS / PARCEIROS (NOVO)
+   ========================================================================== */
+.tech-bar-section {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 0;
+}
+
+.tech-bar-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a99ad;
+  margin-bottom: 1rem;
+}
+
+.tech-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+.tech-tag-icon {
+  color: #10b981; /* Verde de status */
+}
+
+
+/* ==========================================================================
+   RISK SECTION / OUTRAS SEÇÕES
+   ========================================================================== */
+.risk-section {
+  /* estilos de risco (evita conjunto de regras vazio) */
+  padding: 0;
+}
   .scroll-cue span { display: none; }
   .section-shell { padding: 90px 0; }
   .system-axis { display: none; }

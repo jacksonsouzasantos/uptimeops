@@ -94,6 +94,16 @@ const steps = [
     text: "Acompanhamos sinais, exceções e testes planejados para manter a prontidão visível ao longo do tempo.",
   },
 ];
+const supportedTechs = [
+  "Microsoft 365",
+  "VMware",
+  "Hyper-V",
+  "Linux Server",
+  "Windows Server",
+  "Veeam",
+  "Storage NAS / SAN",
+  "AWS / Azure Cloud",
+];
 
 function StatusPip({ children }: { children: React.ReactNode }) {
   return (
@@ -175,25 +185,30 @@ export default function Home() {
           </div>
 
           <div className="hero-content content-frame">
-            <div className="hero-intro-row">
-              <StatusPip>OPERAÇÃO MONITORADA</StatusPip>
-              <span className="microcopy">DR / BACKUP / AUTOMAÇÃO</span>
-            </div>
-            <h1>
-              Você não descobre uma falha <em>quando ela já interrompeu</em> a operação.
-            </h1>
-            <p className="hero-lead">
-              Soluções de backup e Disaster Recovery integradas a agentes de automação para monitorar sinais críticos, identificar instabilidades e acelerar a resposta antes que a indisponibilidade afete o negócio.
-            </p>
-            <div className="hero-actions">
-              <a className="button-primary" href="#contato">
-                Solicitar diagnóstico de risco <ArrowDownRight size={20} />
-              </a>
-              <a className="text-link light-link" href="#metodo">
-                Entenda o método <ArrowDownRight size={18} />
-              </a>
-            </div>
-          </div>
+  <div className="hero-intro-row">
+    <StatusPip>PROTEÇÃO DE DADOS & CONTINUIDADE</StatusPip>
+    <span className="microcopy">BACKUP / DISASTER RECOVERY / CYBERSECURITY</span>
+  </div>
+  
+  {/* H1 reescrito para responder imediatamente O QUE VOCÊS FAZEM */}
+  <h1>
+    Backup Corporativo e Disaster Recovery para empresas que <em>não podem parar</em>.
+  </h1>
+  
+  {/* Lead focado nos benefícios claros */}
+  <p className="hero-lead">
+    Protegemos seus servidores, máquinas virtuais e arquivos críticos contra ransomware, falhas humanas e indisponibilidade com monitoramento contínuo e recuperação rápida.
+  </p>
+  
+  <div className="hero-actions">
+    <a className="button-primary" href="#contato">
+      Agendar Avaliação de Backup <ArrowDownRight size={20} />
+    </a>
+    <a className="text-link light-link" href="#metodo">
+      Entenda o método <ArrowDownRight size={18} />
+    </a>
+  </div>
+</div>
 
           <aside className="hero-status-panel" aria-label="Resumo da solução">
             <div className="panel-header">
@@ -217,7 +232,19 @@ export default function Home() {
             <a href="#risco" className="scroll-cue"><span>Role para diagnosticar</span><ChevronDown size={17} /></a>
           </div>
         </section>
-
+{/* Barra de Prova Técnica e Tecnologias Atendidas */}
+<section className="tech-bar-section" aria-label="Tecnologias e Ambientes Suportados">
+  <div className="content-frame">
+    <p className="tech-bar-title">PROTEÇÃO E BACKUP COMPATÍVEL COM O SEU AMBIENTE CORPORATIVO:</p>
+    <div className="tech-tags-grid">
+      {supportedTechs.map((tech) => (
+        <span key={tech} className="tech-tag">
+          <Check size={14} className="tech-tag-icon" /> {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
         <section className="risk-section section-shell" id="risco">
           <div className="system-axis" aria-hidden="true"><span>RISCO / 01</span></div>
           <div className="content-frame section-grid risk-grid">
@@ -374,7 +401,19 @@ export default function Home() {
             <form className="contact-form" onSubmit={handleFormSubmit}>
               <div className="form-row"><label>Nome<input name="nome" autoComplete="name" required placeholder="Como podemos chamar você?" /></label><label>Empresa<input name="empresa" autoComplete="organization" required placeholder="Nome da empresa" /></label></div>
               <label>E-mail corporativo<input name="email" type="email" autoComplete="email" required placeholder="nome@empresa.com.br" /></label>
-              <label>O que é mais crítico hoje?<span className="select-wrap"><select name="prioridade" defaultValue=""><option value="" disabled>Selecione uma prioridade</option><option>Validar backups existentes</option><option>Estruturar plano de Disaster Recovery</option><option>Monitorar ambiente e receber alertas</option><option>Revisar continuidade de ponta a ponta</option></select></span></label>
+             <label>
+  O que é mais crítico hoje?
+  <span className="select-wrap">
+    <select name="prioridade" defaultValue="">
+      <option value="" disabled>Selecione uma prioridade para o ambiente</option>
+      <option>Backup Imutável / Proteção Anti-Ransomware</option>
+      <option>Backup de Servidores (VMware / Hyper-V / Linux / Windows)</option>
+      <option>Backup de Microsoft 365 e Nuvem</option>
+      <option>Plano de Disaster Recovery (DRaaS)</option>
+      <option>Auditoria / Diagnóstico de Backups Atuais</option>
+    </select>
+  </span>
+</label>
               <label>Contexto do ambiente<textarea name="contexto" rows={3} placeholder="Ex.: sistemas críticos, volume de dados, maior preocupação ou incidente recente." /></label>
               <button className="form-submit" type="submit">Solicitar diagnóstico inicial <ArrowUpRight size={19} /></button>
               {formNotice && <p className="form-notice" role="status">{formNotice}</p>}
