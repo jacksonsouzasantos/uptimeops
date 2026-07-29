@@ -13,6 +13,7 @@ import {
   Clock3,
   Database,
   Gauge,
+  Instagram, // <--- Adicionado aqui
   Mail,
   Menu,
   Network,
@@ -459,28 +460,50 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <div className="content-frame footer-inner">
-          <a className="brand footer-brand" href="#inicio" aria-label="Ir ao início">
-  <span className="brand-mark-wrap">
-    <img 
-      src="/upTime Logo cybersecurity.png" 
-      alt="Logotipo da UptimeOps" 
-      className="brand-mark"
-      loading="lazy"
-    />
-  </span>
-  <span className="brand-lockup">
-    <span className="brand-name">UptimeOps<span className="brand-dot">.</span></span>
-    <span className="brand-credential">DR / OPS</span>
-  </span>
-</a>
-          <p>Backup • Disaster Recovery • Automação de monitoramento</p>
-          <div className="footer-right">
-            <a className="whatsapp-link" href="https://wa.me/5583998191003" target="_blank" rel="noopener noreferrer" aria-label="Falar com especialista via WhatsApp"><MessageCircle size={18} /><span>WhatsApp</span></a>
-            <span>© {new Date().getFullYear()} — Estruture a continuidade antes do incidente.</span>
-          </div>
-        </div>
-      </footer>
+  <div className="content-frame footer-inner">
+    <a className="brand footer-brand" href="#inicio" aria-label="Ir ao início">
+      <span className="brand-mark-wrap">
+        <img 
+          src="/upTime Logo cybersecurity.png" 
+          alt="Logotipo da UptimeOps" 
+          className="brand-mark"
+          loading="lazy"
+        />
+      </span>
+      <span className="brand-lockup">
+        <span className="brand-name">UptimeOps<span className="brand-dot">.</span></span>
+        <span className="brand-credential">DR / OPS</span>
+      </span>
+    </a>
+    <p>Backup • Disaster Recovery • Automação de monitoramento</p>
+    <div className="footer-right">
+      {/* Grupo de Links Sociais */}
+      <div className="social-links">
+        <a 
+          className="social-link whatsapp-link" 
+          href="https://wa.me/5583998191003" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          aria-label="Falar com especialista via WhatsApp"
+        >
+          <MessageCircle size={18} />
+          <span>WhatsApp</span>
+        </a>
+        <a 
+          className="social-link instagram-link" 
+          href="https://instagram.com/seu_perfil" // <-- Substitua pelo seu perfil do Instagram
+          target="_blank" 
+          rel="noopener noreferrer" 
+          aria-label="Siga a UptimeOps no Instagram"
+        >
+          <Instagram size={18} />
+          <span>Instagram</span>
+        </a>
+      </div>
+      <span>© {new Date().getFullYear()} — Estruture a continuidade antes do incidente.</span>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
