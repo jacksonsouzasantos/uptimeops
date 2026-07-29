@@ -177,61 +177,65 @@ export default function Home() {
 
       <main>
         <section className="hero" id="inicio">
-          <div className="hero-gridline hero-gridline-one" />
-          <div className="hero-gridline hero-gridline-two" />
-          <div className="hero-image-wrap" aria-hidden="true">
-            <img src="/manus-storage/hero-dr-control-room_cb65e973.jpg" alt="" className="hero-image" />
-            <div className="hero-image-overlay" />
-          </div>
-
-          <div className="hero-content content-frame">
-  <div className="hero-intro-row">
-    <StatusPip>PROTEÇÃO DE DADOS & CONTINUIDADE</StatusPip>
-    <span className="microcopy">BACKUP / DISASTER RECOVERY / CYBERSECURITY</span>
+  <div className="hero-gridline hero-gridline-one" />
+  <div className="hero-gridline hero-gridline-two" />
+  <div className="hero-image-wrap" aria-hidden="true">
+    <img src="/manus-storage/hero-dr-control-room_cb65e973.jpg" alt="" className="hero-image" />
+    <div className="hero-image-overlay" />
   </div>
-  
-  {/* H1 reescrito para responder imediatamente O QUE VOCÊS FAZEM */}
-  <h1>
-    Backup Corporativo e Disaster Recovery para empresas que <em>não podem parar</em>.
-  </h1>
-  
-  {/* Lead focado nos benefícios claros */}
-  <p className="hero-lead">
-    Protegemos seus servidores, máquinas virtuais e arquivos críticos contra ransomware, falhas humanas e indisponibilidade com monitoramento contínuo e recuperação rápida.
-  </p>
-  
-  <div className="hero-actions">
-    <a className="button-primary" href="#contato">
-      Agendar Avaliação de Backup <ArrowDownRight size={20} />
-    </a>
-    <a className="text-link light-link" href="#metodo">
-      Entenda o método <ArrowDownRight size={18} />
-    </a>
+
+  <div className="content-frame hero-main-wrapper">
+    {/* COLUNA DA ESQUERDA: Textos, Título e Botões */}
+    <div className="hero-left-column">
+      <div className="hero-intro-row">
+        <StatusPip>PROTEÇÃO DE DADOS & CONTINUIDADE</StatusPip>
+        <span className="microcopy">BACKUP / DISASTER RECOVERY / CYBERSECURITY</span>
+      </div>
+
+      <h1>
+        Backup Corporativo e Disaster Recovery para empresas que <em>não podem parar</em>.
+      </h1>
+
+      <p className="hero-lead">
+        Protegemos seus servidores, máquinas virtuais e arquivos críticos contra ransomware, falhas humanas e indisponibilidade com monitoramento contínuo e recuperação rápida.
+      </p>
+
+      <div className="hero-actions">
+        <a className="button-primary" href="#contato">
+          Agendar Avaliação de Backup <ArrowDownRight size={20} />
+        </a>
+        <a className="text-link light-link" href="#metodo">
+          Entenda o método <ArrowDownRight size={18} />
+        </a>
+      </div>
+    </div>
+
+    {/* COLUNA DA DIREITA: Card com Sinal de Continuidade */}
+    <div className="hero-right-column">
+      <aside className="hero-status-panel" aria-label="Resumo da solução">
+        <div className="panel-header">
+          <span>SINAL DE CONTINUIDADE</span>
+          <Activity size={16} />
+        </div>
+        <div className="pulse-visual" aria-hidden="true">
+          <svg viewBox="0 0 384 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 34H66L82 34L94 13L111 55L128 34H186L204 34L215 20L228 48L244 34H384" stroke="currentColor" strokeWidth="2" />
+          </svg>
+        </div>
+        <div className="status-readout">
+          <div><span>BACKUP</span><strong>VALIDÁVEL</strong></div>
+          <div><span>ALERTAS</span><strong>ACIONÁVEIS</strong></div>
+          <div><span>RECUPERAÇÃO</span><strong>PLANEJADA</strong></div>
+        </div>
+      </aside>
+    </div>
   </div>
-</div>
 
-          <aside className="hero-status-panel" aria-label="Resumo da solução">
-            <div className="panel-header">
-              <span>SINAL DE CONTINUIDADE</span>
-              <Activity size={16} />
-            </div>
-            <div className="pulse-visual" aria-hidden="true">
-              <svg viewBox="0 0 384 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 34H66L82 34L94 13L111 55L128 34H186L204 34L215 20L228 48L244 34H384" stroke="currentColor" strokeWidth="2" />
-              </svg>
-            </div>
-            <div className="status-readout">
-              <div><span>BACKUP</span><strong>VALIDÁVEL</strong></div>
-              <div><span>ALERTAS</span><strong>ACIONÁVEIS</strong></div>
-              <div><span>RECUPERAÇÃO</span><strong>PLANEJADA</strong></div>
-            </div>
-          </aside>
-
-          <div className="hero-footer content-frame">
-            <p>Contingência não é um documento arquivado. É uma capacidade que precisa ser testada, acompanhada e sustentada.</p>
-            <a href="#risco" className="scroll-cue"><span>Role para diagnosticar</span><ChevronDown size={17} /></a>
-          </div>
-        </section>
+  <div className="hero-footer content-frame">
+    <p>Contingência não é um documento arquivado. É uma capacidade que precisa ser testada, acompanhada e sustentada.</p>
+    <a href="#risco" className="scroll-cue"><span>Role para diagnosticar</span><ChevronDown size={17} /></a>
+  </div>
+</section>
 {/* Barra de Prova Técnica e Tecnologias Atendidas */}
 <section className="tech-bar-section" aria-label="Tecnologias e Ambientes Suportados">
   <div className="content-frame">
