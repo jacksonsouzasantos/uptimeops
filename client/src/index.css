@@ -417,15 +417,15 @@ img { max-width: 100%; display: block; }
   .hero-status-panel { top: auto; bottom: 117px; left: 20px; right: 20px; width: auto; }
   .hero-footer { bottom: 27px; align-items: flex-end; }
   .hero-footer p { width: 72%; font-size: 10px; }
-  /* ==========================================================================
-   BARRA DE TECNOLOGIAS / PARCEIROS (AJUSTADO)
+ /* ==========================================================================
+   BARRA DE TECNOLOGIAS - CORREÇÃO DEFINITIVA (LINHAS E COLUNAS)
    ========================================================================== */
 .tech-bar-section {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(255, 255, 255, 0.03);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5rem 0;
+  padding: 2rem 0;
 }
 
 .tech-bar-title {
@@ -433,36 +433,42 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #8a99ad;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   display: block;
 }
 
-/* Força o alinhamento em linha no Desktop com wrap suave */
+/* Força a grade horizontal flexível no Desktop */
 .tech-tags-grid {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
-  gap: 0.75rem 1.5rem !important;
-  align-items: center;
-  justify-content: flex-start;
+  gap: 1.25rem 2.5rem !important; /* Espaçamento entre colunas e linhas */
+  align-items: center !important;
+  justify-content: flex-start !important;
 }
 
-/* Garante que os itens fiquem lado a lado sem quebrar linha sozinhos */
+/* Força cada tag (Check + Nome) a ficar rigorosamente em linha na horizontal */
 .tech-tag {
   display: inline-flex !important;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #e2e8f0;
-  white-space: nowrap; /* Impede a quebra de texto dentro da tag */
+  white-space: nowrap !important; /* Evita quebra de linha interna */
+  width: auto !important; /* Impede de ocupar 100% da largura */
 }
 
+/* Força o ícone Check a ficar grudado na esquerda do texto */
+.tech-tag svg,
 .tech-tag-icon {
-  color: #10b981; /* Verde de status */
-  flex-shrink: 0;
+  display: inline-block !important;
+  color: #10b981 !important; /* Verde status */
+  flex-shrink: 0 !important;
+  width: 16px !important;
+  height: 16px !important;
 }
-
 
 /* ==========================================================================
    RISK SECTION / OUTRAS SEÇÕES
