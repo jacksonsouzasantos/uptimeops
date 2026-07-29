@@ -118,12 +118,42 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [formNotice, setFormNotice] = useState("");
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+ /* const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFormNotice(
       "Formulário pronto para integração. Configure o destino com o e-mail ou CRM do especialista antes de publicar.",
     );
+  }; */
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  const formData = new FormData(e.currentTarget);
+  const data = {
+    nome: formData.get('nome'),
+    empresa: formData.get('empresa'),
+    email: formData.get('email'),
+    prioridade: formData.get('prioridade'),
+    contexto: formData.get('contexto'),
   };
+
+  try {
+    // Aponta para a API do backend
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      setFormNotice('Solicitação enviada com sucesso! Entraremos em contato em breve.');
+      e.currentTarget.reset();
+    } else {
+      setFormNotice('Ocorreu um erro. Tente novamente.');
+    }
+  } catch (error) {
+    setFormNotice('Erro ao conectar ao servidor.');
+  }
+};
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -445,7 +475,7 @@ export default function Home() {
 </a>
           <p>Backup • Disaster Recovery • Automação de monitoramento</p>
           <div className="footer-right">
-            <a className="whatsapp-link" href="https://wa.me/5511987654321" target="_blank" rel="noopener noreferrer" aria-label="Falar com especialista via WhatsApp"><MessageCircle size={18} /><span>WhatsApp</span></a>
+            <a className="whatsapp-link" href="https://wa.me/5583998191003" target="_blank" rel="noopener noreferrer" aria-label="Falar com especialista via WhatsApp"><MessageCircle size={18} /><span>WhatsApp</span></a>
             <span>© {new Date().getFullYear()} — Estruture a continuidade antes do incidente.</span>
           </div>
         </div>
