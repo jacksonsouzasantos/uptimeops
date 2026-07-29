@@ -104,3 +104,5 @@
 [2026-07-29T01:42:54.070Z] {"timestamp":1785289373544,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
 [2026-07-29T01:43:04.861Z] {"timestamp":1785289384623,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
 [2026-07-29T02:07:27.216Z] {"timestamp":1785290845175,"level":"DEBUG","args":["[vite]","hot updated: /src/index.css"],"stack":null}
+[2026-07-29T23:00:14.175Z] {"timestamp":1785366012172,"level":"DEBUG","args":["[Manus] Debug collector initialized (no rrweb, UI events only)"],"stack":null}
+[2026-07-29T23:00:14.175Z] {"timestamp":1785366012241,"level":"DEBUG","args":["[vite] connected."],"stack":null}
