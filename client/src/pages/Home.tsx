@@ -215,7 +215,7 @@ export default function Home() {
   </div>
 
   <div className="content-frame hero-main-wrapper">
-    {/* COLUNA DA ESQUERDA: Textos, Título e Botões */}
+    {/* COLUNA DA ESQUERDA: Textos, Título, Botões e Rodapé do Hero */}
     <div className="hero-left-column">
       <div className="hero-intro-row">
         <StatusPip>PROTEÇÃO DE DADOS & CONTINUIDADE</StatusPip>
@@ -238,6 +238,12 @@ export default function Home() {
           Entenda o método <ArrowDownRight size={18} />
         </a>
       </div>
+
+      {/* MOVIDO PARA DENTRO DA COLUNA DA ESQUERDA */}
+      <div className="hero-footer-text">
+        <p>Contingência não é um documento arquivado. É uma capacidade que precisa ser testada, acompanhada e sustentada.</p>
+        <a href="#risco" className="scroll-cue"><span>Role para diagnosticar</span><ChevronDown size={17} /></a>
+      </div>
     </div>
 
     {/* COLUNA DA DIREITA: Card com Sinal de Continuidade */}
@@ -259,11 +265,6 @@ export default function Home() {
         </div>
       </aside>
     </div>
-  </div>
-
-  <div className="hero-footer content-frame">
-    <p>Contingência não é um documento arquivado. É uma capacidade que precisa ser testada, acompanhada e sustentada.</p>
-    <a href="#risco" className="scroll-cue"><span>Role para diagnosticar</span><ChevronDown size={17} /></a>
   </div>
 </section>
 {/* Barra de Prova Técnica e Tecnologias Atendidas */}
