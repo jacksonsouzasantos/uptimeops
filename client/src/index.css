@@ -530,3 +530,32 @@ img { max-width: 100%; display: block; }
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   APENAS DESKTOP (Não altera nada do mobile)
+   ========================================================================== */
+@media (min-width: 769px) {
+  .tech-tags-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 1.25rem 2.5rem !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  .tech-tag {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    width: auto !important;
+    white-space: nowrap !important;
+  }
+
+  .tech-tag svg,
+  .tech-tag-icon {
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+  }
+}
