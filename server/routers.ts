@@ -10,7 +10,7 @@ router.post('/api/contact', async (req, res) => {
   try {
     await resend.emails.send({
       from: 'Site UptimeOps <onboarding@resend.dev>',
-      to: ['uptimeops@gmail.com'], // Coloque seu e-mail de recebimento aqui
+      to: ['UPTIMEOPSINFRA.COM.BR'], // Coloque seu e-mail de recebimento aqui
       replyTo: email,
       subject: `[Novo Diagnóstico] ${empresa} - ${nome}`,
       html: `

@@ -491,7 +491,7 @@ export default function Home() {
         </a>
         <a 
           className="social-link instagram-link" 
-          href="https://instagram.com/seu_perfil" // <-- Substitua pelo seu perfil do Instagram
+          href="http://instagram.com/uptimeopsinfra/" // <-- Substitua pelo seu perfil do Instagram
           target="_blank" 
           rel="noopener noreferrer" 
           aria-label="Siga a UptimeOps no Instagram"
