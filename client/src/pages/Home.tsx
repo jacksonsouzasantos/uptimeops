@@ -133,7 +133,7 @@ export default function Home() {
                 <a className="button-primary" href="#contato">
                   Avaliar Meu Ambiente <ArrowUpRight size={18} />
                 </a>
-                <a className="whatsapp-btn-hero" href="https://wa.me/558398766447" target="_blank" rel="noopener noreferrer">
+                <a className="whatsapp-btn-hero" href="https://wa.me/5583998766447" target="_blank" rel="noopener noreferrer">
                   <MessageCircle size={18} /> Falar no WhatsApp
                 </a>
               </div>
@@ -263,7 +263,7 @@ export default function Home() {
           </div>
           <p>© {new Date().getFullYear()} UptimeOps — Backup & Disaster Recovery para PMEs.</p>
           <div className="social-links">
-            <a className="social-link" href="https://wa.me/5583998191003" target="_blank" rel="noopener noreferrer"><MessageCircle size={18} /> WhatsApp</a>
+            <a className="social-link" href="https://wa.me/5583998766447" target="_blank" rel="noopener noreferrer"><MessageCircle size={18} /> WhatsApp</a>
             <a className="social-link" href="http://instagram.com/uptimeopsinfra/" target="_blank" rel="noopener noreferrer"><Instagram size={18} /> Instagram</a>
           </div>
         </div>
