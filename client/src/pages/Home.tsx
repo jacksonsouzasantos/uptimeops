@@ -231,55 +231,54 @@ export default function Home() {
               <p>Preencha os campos abaixo para entendermos a criticidade do seu ambiente e indicarmos a melhor solução.</p>
             </div>
 
-            <form
-              className="contact-form"
-              name="diagnostico-backup"
-              method="POST"
-              data-netlify="true"
-              onSubmit={handleSubmit}
-            >
-              {/* Campo oculto obrigatório Netlify */}
-              <input type="hidden" name="form-name" value="diagnostico-backup" />
+         <form
+  className="contact-form"
+  name="diagnostico-backup"
+  method="POST"
+  data-netlify="true"
+  onSubmit={handleSubmit}
+>
+  <input type="hidden" name="form-name" value="diagnostico-backup" />
 
-              <div className="form-row">
-                <label>
-                  Nome
-                  <input name="nome" required placeholder="Seu nome" />
-                </label>
-                <label>
-                  Empresa
-                  <input name="empresa" required placeholder="Nome da sua empresa" />
-                </label>
-              </div>
+  <div className="form-row">
+    <label>
+      Nome
+      <input name="nome" required placeholder="Seu nome" />
+    </label>
+    <label>
+      Empresa
+      <input name="empresa" required placeholder="Nome da sua empresa" />
+    </label>
+  </div>
 
-              <div className="form-row">
-                <label>
-                  E-mail corporativo
-                  <input name="email" type="email" required placeholder="seuemail@empresa.com.br" />
-                </label>
-                <label>
-                  O que precisa proteger hoje?
-                  <select name="prioridade" required defaultValue="">
-                    <option value="" disabled>Selecione uma opção</option>
-                    <option value="Backup Anti-Ransomware">Backup Anti-Ransomware</option>
-                    <option value="Servidores (VMware / Windows / Linux)">Servidores (VMware / Windows / Linux)</option>
-                    <option value="Microsoft 365 e Nuvem">Microsoft 365 e Nuvem</option>
-                    <option value="Diagnóstico / Avaliação de Backup Atual">Diagnóstico / Avaliação de Backup Atual</option>
-                  </select>
-                </label>
-              </div>
+  <div className="form-row">
+    <label>
+      E-mail corporativo
+      <input name="email" type="email" required placeholder="seuemail@empresa.com.br" />
+    </label>
+    <label>
+      O que precisa proteger hoje?
+      <select name="prioridade" required defaultValue="">
+        <option value="" disabled>Selecione uma opção</option>
+        <option value="Backup Anti-Ransomware">Backup Anti-Ransomware</option>
+        <option value="Servidores (VMware / Windows / Linux)">Servidores (VMware / Windows / Linux)</option>
+        <option value="Microsoft 365 e Nuvem">Microsoft 365 e Nuvem</option>
+        <option value="Diagnóstico / Avaliação de Backup Atual">Diagnóstico / Avaliação de Backup Atual</option>
+      </select>
+    </label>
+  </div>
 
-              <label>
-                Conte brevemente sobre o seu ambiente
-                <textarea name="contexto" rows={3} placeholder="Ex: Quantidade de servidores, sistemas críticos ou principais preocupações..." />
-              </label>
+  <label>
+    Conte brevemente sobre o seu ambiente
+    <textarea name="contexto" rows={3} placeholder="Ex: Quantidade de servidores..." />
+  </label>
 
-              <button className="form-submit" type="submit" disabled={loading}>
-                {loading ? "Enviando..." : "Solicitar Diagnóstico"} <ArrowUpRight size={19} />
-              </button>
+  <button className="form-submit" type="submit" disabled={loading}>
+    {loading ? "Enviando..." : "Solicitar Diagnóstico"} <ArrowUpRight size={19} />
+  </button>
 
-              {formNotice && <p className="form-notice">{formNotice}</p>}
-            </form>
+  {formNotice && <p className="form-notice">{formNotice}</p>}
+</form>
           </div>
         </section>
       </main>
