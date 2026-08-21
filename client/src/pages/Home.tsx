@@ -258,13 +258,13 @@ export default function Home() {
     </label>
     <label>
       O que precisa proteger hoje?
-      <select name="prioridade" required defaultValue="">
-        <option value="" disabled>Selecione uma opção</option>
-        <option value="Backup Anti-Ransomware">Backup Anti-Ransomware</option>
-        <option value="Servidores (VMware / Windows / Linux)">Servidores (VMware / Windows / Linux)</option>
-        <option value="Microsoft 365 e Nuvem">Microsoft 365 e Nuvem</option>
-        <option value="Diagnóstico / Avaliação de Backup Atual">Diagnóstico / Avaliação de Backup Atual</option>
-      </select>
+      <select name="ambiente" required defaultValue="">
+  <option value="" disabled>Selecione uma opção</option>
+  <option value="Backup Anti-Ransomware">Backup Anti-Ransomware</option>
+  <option value="Servidores (VMware / Windows / Linux)">Servidores (VMware / Windows / Linux)</option>
+  <option value="Microsoft 365 e Nuvem">Microsoft 365 e Nuvem</option>
+  <option value="Diagnóstico / Avaliação de Backup Atual">Diagnóstico / Avaliação de Backup Atual</option>
+</select>
     </label>
   </div>
 
