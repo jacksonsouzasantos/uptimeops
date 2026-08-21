@@ -7,8 +7,6 @@ import {
   ArrowUpRight,
   MessageCircle,
   Instagram,
-  Mail,
-  Server,
   Database,
   Lock,
   Clock,
@@ -49,29 +47,31 @@ const supportedTechs = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formNotice, setFormNotice] = useState("");
 
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // Handler unificado para o formulário Netlify
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    setLoading(true);
+    setFormNotice("");
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
+    const myForm = e.currentTarget;
+    const formData = new FormData(myForm);
 
-      if (response.ok) {
-        setFormNotice('Solicitação enviada com sucesso! Entraremos em contato em breve.');
-        e.currentTarget.reset();
-      } else {
-        setFormNotice('Ocorreu um erro. Tente novamente.');
-      }
-    } catch (error) {
-      setFormNotice('Erro ao conectar ao servidor.');
-    }
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(Array.from(formData.entries() as Iterable<[string, string]>)).toString(),
+    })
+      .then(() => {
+        setFormNotice("Solicitação enviada com sucesso! Entraremos em contato em breve.");
+        myForm.reset();
+      })
+      .catch((error) => {
+        setFormNotice("Ocorreu um erro ao enviar: " + error);
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -113,7 +113,7 @@ export default function Home() {
       </header>
 
       <main>
-        {/* Hero Section Simplificado */}
+        {/* Hero Section */}
         <section className="hero" id="inicio">
           <div className="content-frame hero-main-wrapper">
             <div className="hero-left-column">
@@ -155,7 +155,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* O Risco (Dores do PME) */}
+        {/* O Risco */}
         <section className="section-shell" id="risco">
           <div className="content-frame">
             <div className="section-header">
@@ -222,7 +222,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Form/Contato */}
+        {/* Form/Contato (Corrigido para Netlify Forms) */}
         <section className="section-shell bg-dark" id="contato">
           <div className="content-frame contact-layout">
             <div className="contact-intro">
@@ -230,25 +230,54 @@ export default function Home() {
               <h2>Solicite um Diagnóstico Inicial do seu Backup</h2>
               <p>Preencha os campos abaixo para entendermos a criticidade do seu ambiente e indicarmos a melhor solução.</p>
             </div>
-            <form className="contact-form" onSubmit={handleFormSubmit}>
+
+            <form
+              className="contact-form"
+              name="diagnostico-backup"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+            >
+              {/* Campo oculto obrigatório Netlify */}
+              <input type="hidden" name="form-name" value="diagnostico-backup" />
+
               <div className="form-row">
-                <label>Nome<input name="nome" required placeholder="Seu nome" /></label>
-                <label>Empresa<input name="empresa" required placeholder="Nome da sua empresa" /></label>
+                <label>
+                  Nome
+                  <input name="nome" required placeholder="Seu nome" />
+                </label>
+                <label>
+                  Empresa
+                  <input name="empresa" required placeholder="Nome da sua empresa" />
+                </label>
               </div>
+
               <div className="form-row">
-                <label>E-mail corporativo<input name="email" type="email" required placeholder="seuemail@empresa.com.br" /></label>
-                <label>O que precisa proteger hoje?
+                <label>
+                  E-mail corporativo
+                  <input name="email" type="email" required placeholder="seuemail@empresa.com.br" />
+                </label>
+                <label>
+                  O que precisa proteger hoje?
                   <select name="prioridade" required defaultValue="">
                     <option value="" disabled>Selecione uma opção</option>
-                    <option>Backup Anti-Ransomware</option>
-                    <option>Servidores (VMware / Windows / Linux)</option>
-                    <option>Microsoft 365 e Nuvem</option>
-                    <option>Diagnóstico / Avaliação de Backup Atual</option>
+                    <option value="Backup Anti-Ransomware">Backup Anti-Ransomware</option>
+                    <option value="Servidores (VMware / Windows / Linux)">Servidores (VMware / Windows / Linux)</option>
+                    <option value="Microsoft 365 e Nuvem">Microsoft 365 e Nuvem</option>
+                    <option value="Diagnóstico / Avaliação de Backup Atual">Diagnóstico / Avaliação de Backup Atual</option>
                   </select>
                 </label>
               </div>
-              <label>Conte brevemente sobre o seu ambiente<textarea name="contexto" rows={3} placeholder="Ex: Quantidade de servidores, sistemas críticos ou principais preocupações..." /></label>
-              <button className="form-submit" type="submit">Solicitar Diagnóstico <ArrowUpRight size={19} /></button>
+
+              <label>
+                Conte brevemente sobre o seu ambiente
+                <textarea name="contexto" rows={3} placeholder="Ex: Quantidade de servidores, sistemas críticos ou principais preocupações..." />
+              </label>
+
+              <button className="form-submit" type="submit" disabled={loading}>
+                {loading ? "Enviando..." : "Solicitar Diagnóstico"} <ArrowUpRight size={19} />
+              </button>
+
               {formNotice && <p className="form-notice">{formNotice}</p>}
             </form>
           </div>
