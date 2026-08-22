@@ -51,26 +51,17 @@ export default function Home() {
   const [formNotice, setFormNotice] = useState("");
 
   // Handler unificado para o formulário Netlify
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   setLoading(true);
 
   const form = e.currentTarget;
   const formData = new FormData(form);
 
-  // Garante a leitura explícita dos campos do formulário
-  const data = new URLSearchParams();
-  data.append("form-name", "diagnostico-backup");
-  data.append("nome", formData.get("nome") as string || "");
-  data.append("empresa", formData.get("empresa") as string || "");
-  data.append("email", formData.get("email") as string || "");
-  data.append("ambiente", formData.get("ambiente") as string || "");
-  data.append("mensagem", formData.get("mensagem") as string || "");
-
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: data.toString(),
+    body: new URLSearchParams(formData as any).toString(),
   })
     .then((response) => {
       if (response.ok) {
