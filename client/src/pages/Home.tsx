@@ -52,27 +52,37 @@ export default function Home() {
 
   // Handler unificado para o formulário Netlify
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setFormNotice("");
+  e.preventDefault();
+  setLoading(true);
 
-    const myForm = e.currentTarget;
-    const formData = new FormData(myForm);
+  const form = e.currentTarget;
+  const formData = new FormData(form);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(Array.from(formData.entries() as Iterable<[string, string]>)).toString(),
-    })
-      .then(() => {
+  // Garante a leitura explícita dos campos do formulário
+  const data = new URLSearchParams();
+  data.append("form-name", "diagnostico-backup");
+  data.append("nome", formData.get("nome") as string || "");
+  data.append("empresa", formData.get("empresa") as string || "");
+  data.append("email", formData.get("email") as string || "");
+  data.append("ambiente", formData.get("ambiente") as string || "");
+  data.append("mensagem", formData.get("mensagem") as string || "");
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: data.toString(),
+  })
+    .then((response) => {
+      if (response.ok) {
         setFormNotice("Solicitação enviada com sucesso! Entraremos em contato em breve.");
-        myForm.reset();
-      })
-      .catch((error) => {
-        setFormNotice("Ocorreu um erro ao enviar: " + error);
-      })
-      .finally(() => setLoading(false));
-  };
+        form.reset();
+      } else {
+        setFormNotice("Erro ao enviar mensagem. Tente novamente.");
+      }
+    })
+    .catch(() => setFormNotice("Erro ao enviar mensagem. Tente novamente."))
+    .finally(() => setLoading(false));
+};
 
   return (
     <div className="site-shell">
