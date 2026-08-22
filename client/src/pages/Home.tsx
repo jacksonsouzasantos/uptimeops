@@ -41,8 +41,8 @@ const supportedTechs = [
   "Microsoft 365",
   "VMware / Hyper-V",
   "Linux / Windows Server",
-  "Storages NAS / SAN",
-  "Nuvem AWS / Google cloud",
+  "Storages NAS / File servers",
+  "Backup Nuvem / Google cloud",
 ];
 
 export default function Home() {
@@ -260,15 +260,15 @@ export default function Home() {
   <div className="form-row">
     <label>
       E-mail corporativo
-      <input name="email" type="email" required placeholder="seuemail@empresa.com.br" />
+      <input name="email" type="email" required placeholder="seuemail@gmpresa.com" />
     </label>
     <label>
       O que precisa proteger hoje?
  <select name="ambiente" required defaultValue="">
   <option value="" disabled>Selecione uma opção</option>
-  <option value="Backup Anti-Ransomware">Backup Anti-Ransomware</option>
+  <option value="Backup Anti-Ransomware">Backup em Nuvem</option>
   <option value="Servidores (VMware / Windows / Linux)">Servidores (VMware / Windows / Linux)</option>
-  <option value="Microsoft 365 e Nuvem">Microsoft 365 e Nuvem</option>
+  <option value="Microsoft 365 e Nuvem">Nuvem (google / section)</option>
   <option value="Diagnóstico / Avaliação de Backup Atual">Diagnóstico / Avaliação de Backup Atual</option>
 </select>
     </label>
