@@ -277,11 +277,11 @@ export default function Home() {
 </select>
     </label>
   </div>
-
-  <label>
-    Conte brevemente sobre o seu ambiente
-    <textarea name="contexto" rows={3} placeholder="Ex: Quantidade de servidores..." />
-  </label>
+{/* Altere name="contexto" para name="mensagem" */}
+<label>
+  Conte brevemente sobre o seu ambiente
+  <textarea name="mensagem" rows={3} placeholder="Ex: Quantidade de servidores..." />
+</label>
 
   <button className="form-submit" type="submit" disabled={loading}>
     {loading ? "Enviando..." : "Solicitar Diagnóstico"} <ArrowUpRight size={19} />
