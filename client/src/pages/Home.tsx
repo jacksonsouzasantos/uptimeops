@@ -58,10 +58,16 @@ export default function Home() {
   const form = e.currentTarget;
   const formData = new FormData(form);
 
+  // Converte explicitamente FormData para URLSearchParams
+  const params = new URLSearchParams();
+  formData.forEach((value, key) => {
+    params.append(key, value.toString());
+  });
+
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData as any).toString(),
+    body: params.toString(),
   })
     .then((response) => {
       if (response.ok) {
@@ -74,7 +80,6 @@ export default function Home() {
     .catch(() => setFormNotice("Erro ao enviar mensagem. Tente novamente."))
     .finally(() => setLoading(false));
 };
-
   return (
     <div className="site-shell">
       {/* Topbar / Navegação */}
